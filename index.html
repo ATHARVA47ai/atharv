@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login + Marksheet</title>
+
+  <style>
+    body { font-family: Arial; margin: 40px; }
+
+    /* Login Box */
+    #loginBox {
+      width: 300px;
+      margin: 100px auto;
+      padding: 20px;
+      border: 2px solid #000;
+      border-radius: 10px;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin: 8px 0;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: black;
+      color: white;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+    }
+    #marksheet { display: none; }
+
+    /* Marksheet Design */
+    .header {
+      text-align: center;
+      border-bottom: 2px solid #000;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+    .details {
+      display: flex;
+      justify-content: space-between;
+    }
+    .photo {
+      border: 1px solid #000;
+      width: 100px;
+      height: 120px;
+      object-fit: cover;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 18px;
+    }
+    th, td {
+      border: 1px solid #000;
+      padding: 8px;
+    }
+    .pass { color: green; font-weight: bold; }
+    .fail { color: red; font-weight: bold; }
+    .note { margin-top: 20px; font-weight: bold; }
+  </style>
+
+</head>
+<body>
+
+<!-- LOGIN PAGE -->
+<div id="loginBox">
+  <h2>Login</h2>
+  <input type="text" id="username" placeholder="Enter Username">
+  <input type="password" id="password" placeholder="Enter Password">
+  <button onclick="checkLogin()">Login</button>
+  <p id="error" style="color:red;"></p>
+</div>
+
+<!-- MARKSHEET PAGE -->
+<div id="marksheet">
+
+  <div class="header">
+    <h1>NASHIK COLLAGE OF MANAGEMENT AND TECHNOLOGY</h1>
+  </div>
+
+  <div class="details">
+    <div>
+      <p><b>NAME:</b> GAULI PRASAD MADHUKAR</p>
+      <p><b>SEAT NO.:</b> K02122</p>
+      <p><b>MOTHER’S NAME:</b> AASTHA</p>
+      <p><b>COURSE:</b> B.Sc (Computer Science)</p>
+      <p><b>YEAR:</b> SECOND YEAR</p>
+    </div>
+
+    <img src="your-photo.jpg" class="photo" alt="Photo">
+  </div>
+
+  <table>
+    <tr><th>Sub Code</th><th>Subject Name</th><th>Result</th></tr>
+    <tr><td>AEC-101</td><td>Professional Communication Skills</td><td class="pass">PASS</td></tr>
+    <tr><td>CS-101-T</td><td>Problem Solving Using 'C'</td><td class="fail">FAIL</td></tr>
+    <tr><td>CS-102-P</td><td>Lab Course Based on CS-101-T</td><td class="pass">PASS</td></tr>
+    <tr><td>ELC-101-T</td><td>Principles of Analog Electronics</td><td class="pass">PASS</td></tr>
+    <tr><td>ELC-102-P</td><td>Electronics Practical Course I</td><td class="pass">PASS</td></tr>
+    <tr><td>IKS</td><td>Indian Knowledge System</td><td class="pass">PASS</td></tr>
+    <tr><td>MTC-101-T</td><td>Matrix Algebra</td><td class="pass">PASS</td></tr>
+    <tr><td>MTC-102-P</td><td>Mathematics Practical</td><td class="pass">PASS</td></tr>
+    <tr><td>SEC-101-CS</td><td>Statistical Methods</td><td class="pass">PASS</td></tr>
+    <tr><td>VEC-101-T</td><td>Environment Education-I</td><td class="pass">PASS</td></tr>
+  </table>
+
+  <p class="note">NOTE: You can perform good in C programming</p>
+</div>
+
+<script>
+function checkLogin() {
+  let user = document.getElementById("username").value;
+  let pass = document.getElementById("password").value;
+
+  if (user === "Prasaad" && pass === "prassad@123") {
+    document.getElementById("loginBox").style.display = "none";
+    document.getElementById("marksheet").style.display = "block";
+  } else {
+    document.getElementById("error").innerHTML = "Invalid Login Details!";
+  }
+}
+</script>
+
+</body>
+</html>
